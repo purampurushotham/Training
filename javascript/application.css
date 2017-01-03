@@ -1,0 +1,17 @@
+#json_table,#selected_table
+{
+width:800px;
+margin:0 auto;}
+table, td, th ,tr{
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td ,tr{
+    padding: 15px;
+}
