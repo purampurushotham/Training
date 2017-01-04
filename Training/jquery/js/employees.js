@@ -16,7 +16,7 @@ var emp=function () {
         getDob:get_Dob,
         getDateOfJoining:get_DateOfJoining,
         getExperience:get_Expereince
-    }
+    };
     //setters
     function set_Id(i) {
         id=i;
@@ -110,7 +110,7 @@ function getEmpData(empId) {
     jQuery("<p/>").html("<strong> Name : </strong>"+EmpDetails.getId()).appendTo("#selected_table");
     jQuery("<p/>").html("<strong> Phone : </strong>"+EmpDetails.getName()).appendTo("#selected_table");
     jQuery("<p/>").html("<strong> DOB : </strong>"+EmpDetails.getDob()).appendTo("#selected_table");
-    jQuery("<p/>").html("<strong> City : </strong>"+EmpDetails.getDateOfJoining()).appendTo("#selected_table");
+    jQuery("<p/>").html("<strong> DOJ : </strong>"+EmpDetails.getDateOfJoining()).appendTo("#selected_table");
 
 }
 //get selected employee
