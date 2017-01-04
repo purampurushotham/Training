@@ -47,13 +47,12 @@ var emp=function () {
     }
 }
 //parsing json and pushing it to another list
-function employees() {
-    console.log("in employees");
+function employees(cb) {
     jQuery.ajax({
         url: "employees.json",
         dataType: 'json',
         success: function (data) {
-            getEmployees(data);
+            cb(data);
         },
         error: function () {
             alert("error");
@@ -90,8 +89,8 @@ function createTable() {
     ).appendTo('#json_table');
     jQuery.each(employees, function(i, item) {
         jQuerytr="";
-        jQuerytr = jQuery('<tr>').attr('tid',item.getid()).on("click",function () {
-            get_EMp_Data(item.getid());
+        jQuerytr = jQuery('<tr>').attr('tid',item.getId()).on("click",function () {
+            getEmpData(item.getId());
         }).append(
             jQuery('<td>').text(item.getId()),
             jQuery('<td>').text(item.getName()),
@@ -106,9 +105,9 @@ function createTable() {
 }
 //get  Emp Data on click
 function getEmpData(empId) {
-    jQuery('#selected_table').empty();
+    jQuery('#selected_table').html("");
     var EmpDetails = getSelectedEmp(empId);
-    jQuery("<p/>").html("<strong> Name : </strong>"+EmpDetails.getid()).appendTo("#selected_table");
+    jQuery("<p/>").html("<strong> Name : </strong>"+EmpDetails.getId()).appendTo("#selected_table");
     jQuery("<p/>").html("<strong> Phone : </strong>"+EmpDetails.getName()).appendTo("#selected_table");
     jQuery("<p/>").html("<strong> DOB : </strong>"+EmpDetails.getDob()).appendTo("#selected_table");
     jQuery("<p/>").html("<strong> City : </strong>"+EmpDetails.getDateOfJoining()).appendTo("#selected_table");
@@ -117,8 +116,8 @@ function getEmpData(empId) {
 //get selected employee
 function getSelectedEmp(eid){
     for(var e in employees) {
-        if (employees[e].getid() == eid) {
-            console.log(employees[e]);
+        if (employees[e].getId() == eid) {
+           // console.log(employees[e]);
             return employees[e];
         }
     }
